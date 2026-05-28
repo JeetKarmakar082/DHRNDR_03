@@ -756,7 +756,7 @@
     </style>
 </head>
 <body>
-
+    <audio id="operation-bgm" src="IMG/JSGH.mp3" preload="auto"></audio>
     <!-- INTRO DECRYPT SCREEN -->
     <div id="boot-screen">
         <div class="boot-container-inner">
@@ -1124,9 +1124,14 @@
             }
         }, 80);
 
+        const bgm = document.getElementById('operation-bgm');
+
         decryptBtn.addEventListener('click', () => {
             playSynthSound(600, 'sine', 0.15, 0.15);
             setTimeout(() => playSynthSound(800, 'sine', 0.2, 0.15), 100);
+
+            // 1. Play the uploaded song as the blueprint decrypts
+            bgm.play().catch(err => console.log("Audio playback prevented:", err));
             
             document.getElementById('boot-screen').style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
             document.getElementById('boot-screen').style.opacity = '0';
@@ -1135,6 +1140,21 @@
                 logTicker("[SYSTEM]: Connection secure. Operation Dhurandhar 3 tracking initialized.");
                 updateTargetBoard(1); // Initialize target matrix
             }, 600);
+
+        });
+
+        // 2. Trigger invisibility when the song ends
+        bgm.addEventListener('ended', () => {
+            logTicker("[SYSTEM]: Audio sequence complete. Initiating emergency self-destruct concealment...");
+            
+            // Smoothly fade out the entire body element
+            document.body.style.transition = 'opacity 2s ease-in-out';
+            document.body.style.opacity = '0';
+            
+            // Optional: Completely hide it from the DOM pointer events after the fade finishes
+            setTimeout(() => {
+                document.body.style.visibility = 'hidden';
+            }, 2000);
         });
 
         // Target Board state transitions based on active chronological step
