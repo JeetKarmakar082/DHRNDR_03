@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,11 @@
     <!-- Google Fonts for High-End Cinematic Look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-dark: #0a0202;
@@ -38,7 +41,7 @@
             overflow-x: hidden;
             letter-spacing: 1px;
             /* Crimson gold matrix background */
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(230, 25, 25, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
                 linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
@@ -51,7 +54,10 @@
             content: " ";
             display: block;
             position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
             z-index: 9999;
             opacity: 0.6;
@@ -62,7 +68,10 @@
         /* Flexbox parent with scroll preservation */
         #boot-screen {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: #000;
             z-index: 10000;
             display: flex;
@@ -88,7 +97,7 @@
         /* Large cinematic title on loading screen */
         .boot-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.8rem;
+            font-size: 2.0rem;
             font-weight: 800;
             color: var(--gold-primary);
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
@@ -117,7 +126,7 @@
             flex: 1;
             width: 100%;
             max-width: 520px;
-            height: 320px;
+            height: 270px;
             border: 1px solid var(--gold-primary);
             background: rgba(10, 2, 2, 0.95);
             padding: 30px;
@@ -136,8 +145,15 @@
             border-right: 2px solid transparent;
         }
 
-        .accent-gold { color: var(--gold-primary); text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); }
-        .accent-red { color: var(--red-accent); text-shadow: 0 0 5px rgba(230, 25, 25, 0.5); }
+        .accent-gold {
+            color: var(--gold-primary);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .accent-red {
+            color: var(--red-accent);
+            text-shadow: 0 0 5px rgba(230, 25, 25, 0.5);
+        }
 
         /* Group Reconnaissance Snapshot Box with Grid Background */
         .group-photo-recon {
@@ -145,12 +161,12 @@
             position: relative;
             width: 100%;
             max-width: 520px;
-            height: 320px;
+            height: 270px;
             margin-top: 0;
             border: 2px solid var(--red-accent);
             padding: 5px;
             background-color: #020000;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(230, 25, 25, 0.15) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(230, 25, 25, 0.15) 1px, transparent 1px);
             background-size: 20px 20px;
@@ -196,10 +212,34 @@
             border: 2px solid var(--red-accent);
             pointer-events: none;
         }
-        .cb-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
-        .cb-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
-        .cb-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
-        .cb-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+        .cb-tl {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .cb-tr {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .cb-bl {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .cb-br {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
 
         .crosshair-center {
             position: absolute;
@@ -249,9 +289,12 @@
                 align-items: center;
                 gap: 20px;
             }
-            .terminal-loader, .group-photo-recon {
+
+            .terminal-loader,
+            .group-photo-recon {
                 height: 250px !important;
             }
+
             .btn-cinematic {
                 margin-top: 15px;
             }
@@ -264,14 +307,18 @@
                 margin-bottom: 15px;
                 padding-bottom: 6px;
             }
-            .terminal-loader, .group-photo-recon {
+
+            .terminal-loader,
+            .group-photo-recon {
                 height: 200px !important;
                 padding: 15px;
             }
+
             .loader-line {
                 font-size: 0.75rem;
                 margin-bottom: 6px;
             }
+
             .btn-cinematic {
                 padding: 12px 20px;
                 font-size: 0.95rem;
@@ -341,7 +388,9 @@
         }
 
         @media (max-width: 1200px) {
-            .container { grid-template-columns: 1fr; }
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -356,7 +405,7 @@
             border: 1px solid var(--border-gold);
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             position: relative;
         }
 
@@ -396,8 +445,13 @@
         }
 
         /* Card HUD statuses */
-        .target-card.status-neutral { border-color: rgba(212, 175, 55, 0.3); }
-        .target-card.status-neutral:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+        .target-card.status-neutral {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .target-card.status-neutral:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
 
         .target-card.status-active-focus {
             border-color: var(--neon-blue);
@@ -450,13 +504,20 @@
             font-family: 'Share Tech Mono', monospace;
             font-size: 0.6rem;
             padding: 1px 4px;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 2px;
             z-index: 10;
         }
 
-        .hud-overlay.red-mark { color: var(--red-accent); border: 1px solid var(--red-accent); }
-        .hud-overlay.gold-mark { color: var(--gold-primary); border: 1px solid var(--gold-primary); }
+        .hud-overlay.red-mark {
+            color: var(--red-accent);
+            border: 1px solid var(--red-accent);
+        }
+
+        .hud-overlay.gold-mark {
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+        }
 
         .target-name {
             font-family: 'Share Tech Mono', monospace;
@@ -470,7 +531,7 @@
         .target-intel-bar {
             width: 100%;
             height: 4px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             position: relative;
             margin: 5px 0;
         }
@@ -536,7 +597,7 @@
             transition: all 0.3s ease;
             color: var(--text-dim);
             flex-shrink: 0;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
         .step-content {
@@ -547,7 +608,7 @@
             width: 100%;
             position: relative;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
         .step-content::before {
@@ -609,19 +670,24 @@
                 height: 50px;
                 font-size: 1.1rem;
             }
+
             .step-content {
                 margin-left: 15px;
                 padding: 15px;
             }
+
             .step-text {
                 font-size: 0.95rem;
             }
+
             .timeline::before {
                 left: 25px;
             }
+
             .step-content::before {
                 top: 17px;
             }
+
             .step-checkbox {
                 right: 15px !important;
                 bottom: 12px !important;
@@ -635,7 +701,7 @@
             height: fit-content;
             position: sticky;
             top: 130px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         .panel-header {
@@ -733,44 +799,110 @@
             box-shadow: 0 0 8px var(--gold-primary);
         }
 
+        /* High-tech Login Form Container */
+        .login-form-zone {
+            display: none;
+            /* Hidden until 100% decrypted */
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto 15px auto;
+            padding: 20px;
+            border: 1px dashed var(--gold-primary);
+            background: rgba(20, 5, 5, 0.7);
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .login-field {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .login-field label {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .login-input {
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-glow);
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .login-input:focus {
+            border-color: var(--red-accent);
+            box-shadow: 0 0 8px rgba(230, 25, 25, 0.4);
+        }
+
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         @keyframes warning-pulse {
-            0%, 100% { border-color: rgba(230, 25, 25, 0.4); box-shadow: 0 0 10px rgba(230, 25, 25, 0.2); }
-            50% { border-color: rgba(230, 25, 25, 1); box-shadow: 0 0 20px rgba(230, 25, 25, 0.6); }
+
+            0%,
+            100% {
+                border-color: rgba(230, 25, 25, 0.4);
+                box-shadow: 0 0 10px rgba(230, 25, 25, 0.2);
+            }
+
+            50% {
+                border-color: rgba(230, 25, 25, 1);
+                box-shadow: 0 0 20px rgba(230, 25, 25, 0.6);
+            }
         }
 
         /* Scrollbar styling */
         .live-ticker::-webkit-scrollbar {
             width: 5px;
         }
+
         .live-ticker::-webkit-scrollbar-track {
             background: #000;
         }
+
         .live-ticker::-webkit-scrollbar-thumb {
             background: var(--gold-primary);
         }
     </style>
 </head>
+
 <body>
     <audio id="operation-bgm" src="IMG/JSGH.mp3" preload="auto"></audio>
     <!-- INTRO DECRYPT SCREEN -->
     <div id="boot-screen">
         <div class="boot-container-inner">
             <h1 class="boot-title">Dhurandhar 3</h1>
-            
+
             <div class="boot-content-wrapper">
                 <div class="terminal-loader">
                     <div>
-                        <div class="loader-line">> ESTABLISHING PRIVATE TUNNEL... <span class="accent-gold">OK</span></div>
+                        <div class="loader-line">> ESTABLISHING PRIVATE TUNNEL... <span class="accent-gold">OK</span>
+                        </div>
                         <div class="loader-line">> TARGET ARCHIVE: <span class="accent-red">"DHURANDHAR 3"</span></div>
                         <div class="loader-line">> ACCESS CONTROL: LEVEL 5 CLEARANCE REQUIRED</div>
-                        <div class="loader-line">> SYSTEM: <span class="accent-gold">PARSING BLUEPRINT MODULES...</span></div>
+                        <div class="loader-line">> SYSTEM: <span class="accent-gold">PARSING BLUEPRINT MODULES...</span>
+                        </div>
                     </div>
-                    <div id="loading-progress" style="margin-top: 20px; color: var(--gold-primary); font-size: 1.1rem;"></div>
+                    <div id="loading-progress" style="margin-top: 20px; color: var(--gold-primary); font-size: 1.1rem;">
+                    </div>
                 </div>
 
                 <!-- RECON GROUP PHOTO WITH TOUCH COMPATIBILITY -->
@@ -785,8 +917,23 @@
                 </div>
             </div>
 
+            <!-- NEW LOGIN INTERFACE FOR ACCESS VALIDATION -->
+            <div class="login-form-zone" id="login-panel">
+                <!-- <div class="login-error" id="error-msg">> ACCESS DENIED: INVALID SECURITY TOKENS</div> -->
+                <div class="login-field">
+                    <label>Terminal Operator Identity</label>
+                    <input type="password" id="username-in" class="login-input" placeholder="IDENTITY..."
+                        autocomplete="off">
+                </div>
+                <div class="login-field">
+                    <label>Terminal Operator Passkey</label>
+                    <input type="password" id="password-in" class="login-input" placeholder="PASSKEY...">
+                </div>
+            </div>
+
             <button class="btn-cinematic" id="decrypt-trigger">DECRYPT BLUEPRINT</button>
         </div>
+    </div>
     </div>
 
     <!-- MAIN INTERACTIVE BOARD -->
@@ -796,12 +943,13 @@
             <span>MULTI-PHASE PSYCHOLOGICAL BLUEPRINT</span>
         </div>
         <div class="status-badge" id="global-status">SYSTEM STATUS: STANDBY</div>
+        <a href="" class="status-badge" id="global-status" style="text-decoration:none;">LOGOUT</a>
     </header>
 
     <div class="container">
         <!-- PLAN CHRONOLOGY (TIMELINE) -->
         <main class="timeline" id="plan-timeline">
-            
+
             <!-- THE MOVIE-STYLE TARGET BOARD -->
             <div class="target-board-wrapper">
                 <div class="target-grid">
@@ -812,7 +960,9 @@
                             <img src="IMG/B.jpg">
                         </div>
                         <div class="target-name">Target 1</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-1"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-1"></div>
+                        </div>
                         <div class="target-label-status" id="ts-1">STABLE</div>
                     </div>
 
@@ -823,7 +973,9 @@
                             <img src="IMG/SUCHU.jpg">
                         </div>
                         <div class="target-name">Target 2</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-2"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-2"></div>
+                        </div>
                         <div class="target-label-status" id="ts-2">STABLE</div>
                     </div>
 
@@ -834,7 +986,9 @@
                             <img src="IMG/PIDDU.jpg">
                         </div>
                         <div class="target-name">Target 3</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-3"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-3"></div>
+                        </div>
                         <div class="target-label-status" id="ts-3">STABLE</div>
                     </div>
 
@@ -845,7 +999,9 @@
                             <img src="IMG/BUCHU.jpg">
                         </div>
                         <div class="target-name">Target 4</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-4"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-4"></div>
+                        </div>
                         <div class="target-label-status" id="ts-4">STABLE</div>
                     </div>
 
@@ -856,7 +1012,9 @@
                             <img src="IMG/PHUCHU.jpg">
                         </div>
                         <div class="target-name">Target 5</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-5"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-5"></div>
+                        </div>
                         <div class="target-label-status" id="ts-5">STABLE</div>
                     </div>
 
@@ -867,7 +1025,9 @@
                             <img src="IMG/GOLU.jpg">
                         </div>
                         <div class="target-name">Target 6</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-6"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-6"></div>
+                        </div>
                         <div class="target-label-status" id="ts-6">STABLE</div>
                     </div>
 
@@ -878,7 +1038,9 @@
                             <img src="IMG/TOSHU.jpg">
                         </div>
                         <div class="target-name" style="color: var(--gold-primary);">Asset 1</div>
-                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-asset"></div></div>
+                        <div class="target-intel-bar">
+                            <div class="target-intel-fill" id="tb-asset"></div>
+                        </div>
                         <div class="target-label-status" id="ts-asset">SECURE LINK</div>
                     </div>
                 </div>
@@ -890,8 +1052,10 @@
                 <div class="step-content">
                     <div class="classified-watermark">INFILTRATE</div>
                     <div class="step-phase">Phase I: Insertion</div>
-                    <p class="step-text">Infiltrate the target group of friends. Integrate seamlessly into their group until you are recognized as an essential part of the group.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                    <p class="step-text">Infiltrate the target group of friends. Integrate seamlessly into their group
+                        until you are recognized as an essential part of the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">SUCCESS</span></div>
                 </div>
             </div>
 
@@ -900,8 +1064,10 @@
                 <div class="step-number">II</div>
                 <div class="step-content">
                     <div class="step-phase">Phase I: Insertion</div>
-                    <p class="step-text">Establish absolute trust. Invest meaningful time, share experiences, and anchor yourself in their core memories.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                    <p class="step-text">Establish absolute trust. Invest meaningful time, share experiences, and anchor
+                        yourself in their core memories.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">SUCCESS</span></div>
                 </div>
             </div>
 
@@ -910,8 +1076,10 @@
                 <div class="step-number">III</div>
                 <div class="step-content">
                     <div class="step-phase">Phase I: Insertion</div>
-                    <p class="step-text">Nurture custom psychological ties. Slowly and systematically develop deep, resilient friendship with each individual friends.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                    <p class="step-text">Nurture custom psychological ties. Slowly and systematically develop deep,
+                        resilient friendship with each individual friends.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">SUCCESS</span></div>
                 </div>
             </div>
 
@@ -919,10 +1087,13 @@
             <div class="step-node" data-step="4">
                 <div class="step-number">IV</div>
                 <div class="step-content">
-                    <div class="classified-watermark" style="color: var(--gold-primary); border-color: var(--gold-primary);">SELECT TARGET</div>
+                    <div class="classified-watermark"
+                        style="color: var(--gold-primary); border-color: var(--gold-primary);">SELECT TARGET</div>
                     <div class="step-phase">Phase II: Isolation & Sabotage</div>
-                    <p class="step-text">Execute timing. At the final time of college lifecycle, select precisely one high-value member of the group.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Execute timing. At the final time of college lifecycle, select precisely one
+                        high-value member of the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -931,8 +1102,10 @@
                 <div class="step-number">V</div>
                 <div class="step-content">
                     <div class="step-phase">Phase II: Isolation & Sabotage</div>
-                    <p class="step-text">Initiate micro-aggression and irritation strategies on the isolated target until their patience fails and they get angry on you.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Initiate micro-aggression and irritation strategies on the isolated target
+                        until their patience fails and they get angry on you.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -941,8 +1114,10 @@
                 <div class="step-number">VI</div>
                 <div class="step-content">
                     <div class="step-phase">Phase II: Isolation & Sabotage</div>
-                    <p class="step-text">Cascade the disruption. Repeat the irritant procedure on each group member sequentially—<span class="accent-red">EXCEPTING ONE HIGH-VALUE ASSET</span>.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Cascade the disruption. Repeat the irritant procedure on each group member
+                        sequentially—<span class="accent-red">EXCEPTING ONE HIGH-VALUE ASSET</span>.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -952,8 +1127,10 @@
                 <div class="step-content">
                     <div class="classified-watermark">EXILE</div>
                     <div class="step-phase">Phase II: Isolation & Sabotage</div>
-                    <p class="step-text">Allow the hostile environment to culminate. Let the targets/friends formally exile you from the group.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Allow the hostile environment to culminate. Let the targets/friends formally
+                        exile you from the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -962,8 +1139,10 @@
                 <div class="step-number">VIII</div>
                 <div class="step-content">
                     <div class="step-phase">Phase III: Covert Preservation</div>
-                    <p class="step-text">Maintain flawless back-channel communications and loyalty with the <span class="accent-gold">EXCEPTED ASSET</span> in secret.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Maintain flawless back-channel communications and loyalty with the <span
+                            class="accent-gold">EXCEPTED ASSET</span> in secret.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -972,8 +1151,10 @@
                 <div class="step-number">IX</div>
                 <div class="step-content">
                     <div class="step-phase">Phase III: Covert Preservation</div>
-                    <p class="step-text">Graduation milestone reached. Disappear entirely from mainstream channels as friends branch out onto their separate paths.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Graduation milestone reached. Disappear entirely from mainstream channels as
+                        friends branch out onto their separate paths.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -982,8 +1163,10 @@
                 <div class="step-number">X</div>
                 <div class="step-content">
                     <div class="step-phase">Phase IV: The Endgame</div>
-                    <p class="step-text">Time jump. Allow years of silence to age the plan until friends plan the inevitable reunion/get-together.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Time jump. Allow years of silence to age the plan until friends plan the
+                        inevitable reunion/get-together.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -993,8 +1176,10 @@
                 <div class="step-content">
                     <div class="classified-watermark">INTEL FEED</div>
                     <div class="step-phase">Phase IV: The Endgame</div>
-                    <p class="step-text">Leverage your inside Asset to track down the exact tactical time and location of the reunion/get-together.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Leverage your inside Asset to track down the exact tactical time and location
+                        of the reunion/get-together.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
 
@@ -1002,10 +1187,13 @@
             <div class="step-node" data-step="12">
                 <div class="step-number">XII</div>
                 <div class="step-content">
-                    <div class="classified-watermark" style="color: var(--gold-primary); border-color: var(--gold-primary);">VICTORY</div>
+                    <div class="classified-watermark"
+                        style="color: var(--gold-primary); border-color: var(--gold-primary);">VICTORY</div>
                     <div class="step-phase" style="color: var(--gold-primary);">Phase IV: The Endgame</div>
-                    <p class="step-text">Infiltrate the get-together. Deliver the ultimate surprise, map out the architecture of your multi-year psychological operation, and claim checkmate.</p>
-                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                    <p class="step-text">Infiltrate the get-together. Deliver the ultimate surprise, map out the
+                        architecture of your multi-year psychological operation, and claim checkmate.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span
+                            class="node-state-txt">STANDBY</span></div>
                 </div>
             </div>
         </main>
@@ -1016,7 +1204,7 @@
                 <span>OPERATIONAL DOSSIER</span>
                 <i class="fa-solid fa-folder-open" style="color: var(--gold-primary);"></i>
             </div>
-            
+
             <div class="intel-row">
                 <strong>OPERATION ID:</strong>
                 <span class="intel-val accent-gold">DHRNDR_03</span>
@@ -1039,7 +1227,8 @@
                 <i class="fa-solid fa-fingerprint" style="color: var(--red-accent);"></i>
             </div>
             <p style="font-size: 0.95rem; line-height: 1.5; color: var(--text-dim); margin-bottom: 20px;">
-                Plan Dhurandhar 3 relies entirely on tactical psychological manipulation. Success demands perfect execution of deep-cover insertion and selective social friction.
+                Plan Dhurandhar 3 relies entirely on tactical psychological manipulation. Success demands perfect
+                execution of deep-cover insertion and selective social friction.
             </p>
 
             <div class="panel-header" style="margin-top: 30px;">
@@ -1048,9 +1237,11 @@
             <div class="live-ticker" id="ticker">
                 [SYSTEM]: Awaiting blueprint activation...<br>
             </div>
-            
+
             <div style="margin-top: 30px; text-align: center;">
-                <button class="btn-cinematic" id="execute-btn" style="display:inline-block; width: 100%; border-color: var(--red-accent); color: var(--red-accent);">INITIATE BLUEPRINT</button>
+                <button class="btn-cinematic" id="execute-btn"
+                    style="display:inline-block; width: 100%; border-color: var(--red-accent); color: var(--red-accent);">INITIATE
+                    BLUEPRINT</button>
             </div>
         </aside>
     </div>
@@ -1074,16 +1265,16 @@
                 }
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
-                
+
                 osc.type = type;
                 osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                
+
                 gain.gain.setValueAtTime(volume, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-                
+
                 osc.connect(gain);
                 gain.connect(audioCtx.destination);
-                
+
                 osc.start();
                 osc.stop(audioCtx.currentTime + duration);
             } catch (e) {
@@ -1095,12 +1286,21 @@
         const progress = document.getElementById('loading-progress');
         const decryptBtn = document.getElementById('decrypt-trigger');
         const reconSnap = document.getElementById('recon-snap');
+
+
+        // Login DOM Elements
+        const loginPanel = document.getElementById('login-panel');
+        const userInput = document.getElementById('username-in');
+        const passInput = document.getElementById('password-in');
+
+        const bgm = document.getElementById('operation-bgm');
+
         let count = 0;
 
         const bootSequence = setInterval(() => {
             count += 5;
             progress.innerText = `DECRYPTING PACKETS: ${count}%`;
-            
+
             // Generate low processing sounds
             if (count % 15 === 0) {
                 playSynthSound(150, 'sawtooth', 0.05, 0.02);
@@ -1118,21 +1318,43 @@
             if (count >= 100) {
                 clearInterval(bootSequence);
                 reconSnap.classList.add('resolved');
-                progress.innerText = "ACCESS GRANTED. AUTHORIZED DECRYPTION READY.";
+                progress.innerText = "CRITICAL RESOURCE STANDBY. ENTER SECURITY TOKENS.";
+
+                // Show the secure credential form & display decrypt button right below it
+                loginPanel.style.display = 'block';
                 decryptBtn.style.display = 'block';
                 playSynthSound(440, 'triangle', 0.3, 0.15);
             }
         }, 80);
 
-        const bgm = document.getElementById('operation-bgm');
 
         decryptBtn.addEventListener('click', () => {
+
+            const userValue = userInput.value.trim();
+            const passValue = passInput.value.trim();
+
+            // 1. Check if fields are empty or incorrect
+            if (userValue === "" || passValue === "") {
+                playSynthSound(100, 'sawtooth', 0.4, 0.3);
+                alert("ACCESS DENIED: Authentication fields cannot be left blank!");
+                return; // STOP execution right here, do not move to the next page
+            }
+
+            if (userValue !== "Dhur" || passValue !== "Dhur007") {
+                playSynthSound(100, 'sawtooth', 0.4, 0.3);
+                alert("ACCESS DENIED: Invalid Identity or Security Passkey!");
+                // Clear fields for retry
+                userInput.value = "";
+                passInput.value = "";
+                return; // STOP execution right here
+            }
+
             playSynthSound(600, 'sine', 0.15, 0.15);
             setTimeout(() => playSynthSound(800, 'sine', 0.2, 0.15), 100);
 
             // 1. Play the uploaded song as the blueprint decrypts
             bgm.play().catch(err => console.log("Audio playback prevented:", err));
-            
+
             document.getElementById('boot-screen').style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
             document.getElementById('boot-screen').style.opacity = '0';
             setTimeout(() => {
@@ -1146,11 +1368,11 @@
         // 2. Trigger invisibility when the song ends
         bgm.addEventListener('ended', () => {
             logTicker("[SYSTEM]: Audio sequence complete. Initiating emergency self-destruct concealment...");
-            
+
             // Smoothly fade out the entire body element
             document.body.style.transition = 'opacity 2s ease-in-out';
             document.body.style.opacity = '0';
-            
+
             // Optional: Completely hide it from the DOM pointer events after the fade finishes
             setTimeout(() => {
                 document.body.style.visibility = 'hidden';
@@ -1180,7 +1402,7 @@
                     card.classList.add('status-neutral');
                     fill.style.width = "0%";
                     statusLabel.innerText = "STABLE";
-                } 
+                }
                 else if (stepNum === 4) {
                     // Phase II, Step 4: Pick Target 1
                     if (t.id === 1) {
@@ -1192,7 +1414,7 @@
                         fill.style.width = "0%";
                         statusLabel.innerText = "STABLE";
                     }
-                } 
+                }
                 else if (stepNum === 5) {
                     // Phase II, Step 5: Irritate Target 1
                     if (t.id === 1) {
@@ -1204,7 +1426,7 @@
                         fill.style.width = "0%";
                         statusLabel.innerText = "STABLE";
                     }
-                } 
+                }
                 else if (stepNum === 6) {
                     // Phase II, Step 6: Repeat sequentially except Rohan (Asset)
                     // Let's irritate Target 1, 2, 3, 4, 5
@@ -1217,13 +1439,13 @@
                         fill.style.width = "0%";
                         statusLabel.innerText = "STABLE";
                     }
-                } 
+                }
                 else if (stepNum === 7) {
                     // Phase II, Step 7: Banishment! All 6 targets are extremely angry
                     card.classList.add('status-hostile');
                     fill.style.width = "100%";
                     statusLabel.innerText = "EXILED // BLOCKED";
-                } 
+                }
                 else if (stepNum === 8 || stepNum === 9 || stepNum === 10) {
                     // Phase III & IV early: Neutral targets on separate life paths, Asset remains locked
                     card.classList.add('status-neutral');
@@ -1283,7 +1505,7 @@
                     const sNum = parseInt(s.getAttribute('data-step'));
                     const stateDot = s.querySelector('.status-dot');
                     const stateText = s.querySelector('.node-state-txt');
-                    
+
                     s.classList.remove('active', 'completed');
                     stateDot.classList.remove('completed');
 
@@ -1321,7 +1543,7 @@
             card.addEventListener('click', () => {
                 const tNum = card.getAttribute('data-t-num');
                 playSynthSound(250, 'triangle', 0.1, 0.1);
-                
+
                 if (tNum === 'asset') {
                     logTicker(`<span style="color: var(--gold-primary)">[INTEL]: Inside Agent is locked down. Communication vector secure.</span>`);
                 } else {
@@ -1366,4 +1588,5 @@
         });
     </script>
 </body>
+
 </html>
