@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPERATION: DHURANDHAR 3 // TOP SECRET</title>
+    <!-- Google Fonts for High-End Cinematic Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0202;
+            --panel-bg: rgba(18, 5, 5, 0.9);
+            --gold-primary: #d4af37;
+            --gold-glow: #ffdf7a;
+            --red-accent: #e61919;
+            --red-glow: #ff4d4d;
+            --text-gold: #f5e4c3;
+            --text-dim: #9e8470;
+            --border-gold: rgba(212, 175, 55, 0.25);
+            --border-red: rgba(230, 25, 25, 0.4);
+            --neon-blue: #00f0ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-gold);
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            letter-spacing: 1px;
+            /* Crimson gold matrix background */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(230, 25, 25, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+                linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+        }
+
+        /* Cinematic Scanline Overlay */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            z-index: 9999;
+            opacity: 0.6;
+            pointer-events: none;
+            background-size: 100% 4px;
+        }
+
+        /* Boot overlay with gold-red access terminal theme */
+        #boot-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            border: 4px solid var(--gold-primary);
+            box-shadow: inset 0 0 100px rgba(230, 25, 25, 0.3);
+            overflow-y: auto;
+        }
+
+        /* Large cinematic title on loading screen */
+        .boot-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            letter-spacing: 8px;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 1px double var(--border-gold);
+            padding-bottom: 10px;
+            width: 100%;
+            max-width: 650px;
+            animation: blink 3s infinite;
+        }
+
+        .boot-content-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+            max-width: 1070px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 880px) {
+            .boot-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .terminal-loader, .group-photo-recon {
+                height: 280px !important;
+            }
+        }
+
+        .terminal-loader {
+            flex: 1;
+            width: 100%;
+            max-width: 520px;
+            height: 320px; /* Constrain height to align with photo */
+            border: 1px solid var(--gold-primary);
+            background: rgba(10, 2, 2, 0.95);
+            padding: 30px;
+            box-shadow: 0 0 35px rgba(230, 25, 25, 0.2);
+            font-family: 'Share Tech Mono', monospace;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .loader-line {
+            margin-bottom: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid transparent;
+        }
+
+        .accent-gold { color: var(--gold-primary); text-shadow: 0 0 5px rgba(212, 175, 55, 0.5); }
+        .accent-red { color: var(--red-accent); text-shadow: 0 0 5px rgba(230, 25, 25, 0.5); }
+
+        /* Group Reconnaissance Snapshot Box */
+        .group-photo-recon {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            height: 320px; /* Constrain height to align with terminal loader */
+            margin-top: 0;
+            border: 2px solid var(--red-accent);
+            padding: 5px;
+            background-color: #020000;
+            background-image: 
+                linear-gradient(rgba(230, 25, 25, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(230, 25, 25, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: center;
+            opacity: 0.1;
+            transition: opacity 1.5s ease-in-out;
+            box-shadow: 0 0 20px rgba(230, 25, 25, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Crop overflow from tall images */
+        }
+
+        .group-photo-recon.resolved {
+            opacity: 1;
+        }
+
+        .group-photo-recon img {
+            width: 100%;
+            height: 100%; /* Force image to fill the constrained height */
+            object-fit: contain; /* Fit the entire portrait image without cutting anyone out */
+            display: block;
+            filter: grayscale(100%) contrast(120%) sepia(30%) hue-rotate(-15deg);
+        }
+
+        .group-photo-recon::after {
+            content: 'RECON PHOTO // INTEL-CELL-03';
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(230, 25, 25, 0.85);
+            color: #fff;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            letter-spacing: 2px;
+        }
+
+        .camera-bracket {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--red-accent);
+            pointer-events: none;
+        }
+        .cb-tl { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+        .cb-tr { top: 15px; right: 15px; border-left: none; border-bottom: none; }
+        .cb-bl { bottom: 15px; left: 15px; border-right: none; border-top: none; }
+        .cb-br { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+        .crosshair-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            border: 1px dashed var(--red-accent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .btn-cinematic {
+            background: rgba(212, 175, 55, 0.05);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            padding: 16px 30px;
+            cursor: pointer;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-top: 25px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: none;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 1070px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-cinematic:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: 0 0 30px var(--gold-primary);
+            font-weight: bold;
+        }
+
+        /* */
+        /* Main Shell Layout */
+        header {
+            border-bottom: 2px solid var(--gold-primary);
+            padding: 20px 40px;
+            background: rgba(10, 2, 2, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .logo-zone h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            color: var(--gold-primary);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .logo-zone span {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--red-accent);
+            display: block;
+            margin-top: 4px;
+        }
+
+        .status-badge {
+            border: 1px solid var(--red-accent);
+            color: var(--red-accent);
+            padding: 6px 15px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(230, 25, 25, 0.1);
+            letter-spacing: 2px;
+            animation: blink 2s infinite;
+        }
+
+        /* Tactical Layout Columns */
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 40px;
+        }
+
+        @media (max-width: 1200px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* */
+        /* MOVIE TARGET BOARD GRID */
+        .target-board-wrapper {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-gold);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .target-board-wrapper::before {
+            content: "INTEL-CELL // TARGET ACQUISITION SYSTEM";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #120303;
+            border: 1px solid var(--gold-primary);
+            padding: 2px 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            letter-spacing: 1.5px;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .target-card {
+            background: rgba(10, 2, 2, 0.9);
+            border: 1px solid rgba(230, 25, 25, 0.3);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .target-card.asset-node {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        /* Card HUD statuses */
+        .target-card.status-neutral { border-color: rgba(212, 175, 55, 0.3); }
+        .target-card.status-neutral:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+
+        .target-card.status-active-focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .target-card.status-hostile {
+            border-color: var(--red-accent);
+            animation: warning-pulse 1.5s infinite;
+            box-shadow: 0 0 15px rgba(230, 25, 25, 0.4);
+        }
+
+        .target-card.status-secured {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .target-avatar {
+            width: 100%;
+            height: 100px;
+            background: #200505;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .target-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+            filter: grayscale(100%) contrast(130%) brightness(90%);
+            transition: all 0.3s ease;
+        }
+
+        .status-hostile .target-avatar img {
+            filter: grayscale(100%) contrast(150%) sepia(100%) hue-rotate(-50deg);
+        }
+
+        .status-secured .target-avatar img {
+            filter: grayscale(50%) contrast(110%) sepia(30%) hue-rotate(15deg);
+        }
+
+        /* Overlay text in cards */
+        .hud-overlay {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.6rem;
+            padding: 1px 4px;
+            background: rgba(0,0,0,0.8);
+            border-radius: 2px;
+            z-index: 10;
+        }
+
+        .hud-overlay.red-mark { color: var(--red-accent); border: 1px solid var(--red-accent); }
+        .hud-overlay.gold-mark { color: var(--gold-primary); border: 1px solid var(--gold-primary); }
+
+        .target-name {
+            font-family: 'Share Tech Mono', monospace;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: var(--text-gold);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .target-intel-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            position: relative;
+            margin: 5px 0;
+        }
+
+        .target-intel-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--red-accent);
+            transition: width 0.5s ease;
+        }
+
+        .status-secured .target-intel-fill {
+            background: var(--gold-primary);
+        }
+
+        .target-label-status {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+        }
+
+        /* */
+        /* Left-side Step Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 35px;
+            top: 30px;
+            bottom: 30px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold-primary), var(--red-accent), var(--gold-primary));
+            opacity: 0.3;
+        }
+
+        .step-node {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .step-node:hover {
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: #120303;
+            border: 2px solid var(--gold-primary);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 1.4rem;
+            z-index: 2;
+            transition: all 0.3s ease;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .step-content {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-gold);
+            margin-left: 25px;
+            padding: 25px;
+            width: 100%;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .step-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 27px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 10px solid var(--gold-primary);
+            opacity: 0.3;
+        }
+
+        .step-phase {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--red-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .step-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-gold);
+        }
+
+        /* Dynamic Visual states */
+        .step-node.active .step-number {
+            border-color: var(--red-accent);
+            color: var(--red-accent);
+            box-shadow: 0 0 20px rgba(230, 25, 25, 0.5);
+            background: #260505;
+        }
+
+        .step-node.active .step-content {
+            border-color: var(--red-accent);
+            box-shadow: 0 0 25px rgba(230, 25, 25, 0.15);
+        }
+
+        .step-node.active .step-content::before {
+            border-right-color: var(--red-accent);
+            opacity: 1;
+        }
+
+        .step-node.completed .step-number {
+            border-color: var(--gold-primary);
+            background: #1e1405;
+            color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        /* */
+        /* Right Dashboard Panel */
+        .intel-sidebar {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-gold);
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 130px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .panel-header {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--gold-primary);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .intel-row {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted rgba(212, 175, 55, 0.15);
+            padding-bottom: 8px;
+        }
+
+        .intel-row strong {
+            color: var(--text-dim);
+            font-family: 'Share Tech Mono', monospace;
+            text-transform: uppercase;
+        }
+
+        .intel-val {
+            font-weight: bold;
+            color: var(--text-gold);
+        }
+
+        /* Classified Watermark Style */
+        .classified-watermark {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            border: 2px solid var(--red-accent);
+            color: var(--red-accent);
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            padding: 5px 12px;
+            transform: rotate(-10deg);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* Live System Log Ticker */
+        .live-ticker {
+            background: #050101;
+            border: 1px solid var(--border-red);
+            padding: 15px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            height: 150px;
+            overflow-y: auto;
+            color: var(--red-accent);
+            box-shadow: inset 0 0 10px rgba(230, 25, 25, 0.2);
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Checkbox tactical styling for step execution status */
+        .step-checkbox {
+            position: absolute;
+            right: 25px;
+            bottom: 20px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--red-accent);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--red-accent);
+        }
+
+        .status-dot.completed {
+            background-color: var(--gold-primary);
+            box-shadow: 0 0 8px var(--gold-primary);
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @keyframes warning-pulse {
+            0%, 100% { border-color: rgba(230, 25, 25, 0.4); box-shadow: 0 0 10px rgba(230, 25, 25, 0.2); }
+            50% { border-color: rgba(230, 25, 25, 1); box-shadow: 0 0 20px rgba(230, 25, 25, 0.6); }
+        }
+
+        /* Scrollbar styling */
+        .live-ticker::-webkit-scrollbar {
+            width: 5px;
+        }
+        .live-ticker::-webkit-scrollbar-track {
+            background: #000;
+        }
+        .live-ticker::-webkit-scrollbar-thumb {
+            background: var(--gold-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INTRO DECRYPT SCREEN -->
+    <div id="boot-screen">
+        <h1 class="boot-title">Dhurandhar 3</h1>
+        
+        <div class="boot-content-wrapper">
+            <div class="terminal-loader">
+                <div>
+                    <div class="loader-line">> ESTABLISHING PRIVATE TUNNEL... <span class="accent-gold">OK</span></div>
+                    <div class="loader-line">> TARGET ARCHIVE: <span class="accent-red">"DHURANDHAR 3"</span></div>
+                    <div class="loader-line">> ACCESS CONTROL: LEVEL 5 CLEARANCE REQUIRED</div>
+                    <div class="loader-line">> SYSTEM: <span class="accent-gold">PARSING BLUEPRINT MODULES...</span></div>
+                </div>
+                <div id="loading-progress" style="margin-top: 20px; color: var(--gold-primary); font-size: 1.1rem;"></div>
+            </div>
+
+            <!-- RECON GROUP PHOTO -->
+            <div class="group-photo-recon" id="recon-snap">
+                <div class="camera-bracket cb-tl"></div>
+                <div class="camera-bracket cb-tr"></div>
+                <div class="camera-bracket cb-bl"></div>
+                <div class="camera-bracket cb-br"></div>
+                <div class="crosshair-center"></div>
+                <img src="IMG/GROUP.jpg">
+            </div>
+        </div>
+
+        <button class="btn-cinematic" id="decrypt-trigger">DECRYPT BLUEPRINT</button>
+    </div>
+
+    <!-- MAIN INTERACTIVE BOARD -->
+    <header>
+        <div class="logo-zone">
+            <h1>DHURANDHAR 3</h1>
+            <span>MULTI-PHASE PSYCHOLOGICAL BLUEPRINT</span>
+        </div>
+        <div class="status-badge" id="global-status">SYSTEM STATUS: STANDBY</div>
+    </header>
+
+    <div class="container">
+        <!-- PLAN CHRONOLOGY (TIMELINE) -->
+        <main class="timeline" id="plan-timeline">
+            
+            <!-- -->
+            <!-- THE MOVIE-STYLE TARGET BOARD -->
+            <div class="target-board-wrapper">
+                <div class="target-grid">
+                    <!-- Target 1 -->
+                    <div class="target-card status-neutral" id="tc-1" data-t-num="1">
+                        <span class="hud-overlay red-mark">T-01</span>
+                        <div class="target-avatar">
+                            <img src="IMG/B.jpg">
+                        </div>
+                        <div class="target-name">Friend 1</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-1"></div></div>
+                        <div class="target-label-status" id="ts-1">STABLE</div>
+                    </div>
+
+                    <!-- Target 2 -->
+                    <div class="target-card status-neutral" id="tc-2" data-t-num="2">
+                        <span class="hud-overlay red-mark">T-02</span>
+                        <div class="target-avatar">
+                            <img src="IMG/SUCHU.jpg">
+                        </div>
+                        <div class="target-name">Friend 2</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-2"></div></div>
+                        <div class="target-label-status" id="ts-2">STABLE</div>
+                    </div>
+
+                    <!-- Target 3 -->
+                    <div class="target-card status-neutral" id="tc-3" data-t-num="3">
+                        <span class="hud-overlay red-mark">T-03</span>
+                        <div class="target-avatar">
+                            <img src="IMG/PIDDU.jpg">
+                        </div>
+                        <div class="target-name">Friend 3</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-3"></div></div>
+                        <div class="target-label-status" id="ts-3">STABLE</div>
+                    </div>
+
+                    <!-- Target 4 -->
+                    <div class="target-card status-neutral" id="tc-4" data-t-num="4">
+                        <span class="hud-overlay red-mark">T-04</span>
+                        <div class="target-avatar">
+                            <img src="IMG/BUCHU.jpg">
+                        </div>
+                        <div class="target-name">Friend 4</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-4"></div></div>
+                        <div class="target-label-status" id="ts-4">STABLE</div>
+                    </div>
+
+                    <!-- Target 5 -->
+                    <div class="target-card status-neutral" id="tc-5" data-t-num="5">
+                        <span class="hud-overlay red-mark">T-05</span>
+                        <div class="target-avatar">
+                            <img src="IMG/PHUCHU.jpg">
+                        </div>
+                        <div class="target-name">Friend 5</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-5"></div></div>
+                        <div class="target-label-status" id="ts-5">STABLE</div>
+                    </div>
+
+                    <!-- Target 6 -->
+                    <div class="target-card status-neutral" id="tc-6" data-t-num="6">
+                        <span class="hud-overlay red-mark">T-06</span>
+                        <div class="target-avatar">
+                            <img src="IMG/GOLU.jpg">
+                        </div>
+                        <div class="target-name">Friend 6</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-6"></div></div>
+                        <div class="target-label-status" id="ts-6">STABLE</div>
+                    </div>
+
+                    <!-- Asset 1 -->
+                    <div class="target-card asset-node status-secured" id="tc-asset" data-t-num="asset">
+                        <span class="hud-overlay gold-mark">ASSET</span>
+                        <div class="target-avatar">
+                            <img src="IMG/TOSHU.jpg">
+                        </div>
+                        <div class="target-name" style="color: var(--gold-primary);">Asset 1</div>
+                        <div class="target-intel-bar"><div class="target-intel-fill" id="tb-asset"></div></div>
+                        <div class="target-label-status" id="ts-asset">SECURE LINK</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -->
+            <!-- Phase 1 -->
+            <div class="step-node active" data-step="1">
+                <div class="step-number">I</div>
+                <div class="step-content">
+                    <div class="classified-watermark">INFILTRATE</div>
+                    <div class="step-phase">Phase I: Insertion</div>
+                    <p class="step-text">Infiltrate the target group of friends. Integrate seamlessly into their group until you are recognized as an essential part of the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="2">
+                <div class="step-number">II</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase I: Insertion</div>
+                    <p class="step-text">Establish absolute trust. Invest meaningful time, share experiences, and anchor yourself in their core memories.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="3">
+                <div class="step-number">III</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase I: Insertion</div>
+                    <p class="step-text">Nurture custom psychological ties. Slowly and systematically develop deep, resilient friendship with each individual friends.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">SUCCESS</span></div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="step-node" data-step="4">
+                <div class="step-number">IV</div>
+                <div class="step-content">
+                    <div class="classified-watermark" style="color: var(--gold-primary); border-color: var(--gold-primary);">SELECT TARGET</div>
+                    <div class="step-phase">Phase II: Isolation & Sabotage</div>
+                    <p class="step-text">Execute timing. At the final time of college lifecycle, select precisely one high-value member of the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="5">
+                <div class="step-number">V</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase II: Isolation & Sabotage</div>
+                    <p class="step-text">Initiate micro-aggression and irritation strategies on the isolated target until their patience fails and they get angry on you.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="6">
+                <div class="step-number">VI</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase II: Isolation & Sabotage</div>
+                    <p class="step-text">Cascade the disruption. Repeat the irritant procedure on each group member sequentially—<span class="accent-red">EXCEPTING ONE HIGH-VALUE ASSET</span>.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="7">
+                <div class="step-number">VII</div>
+                <div class="step-content">
+                    <div class="classified-watermark">EXILE</div>
+                    <div class="step-phase">Phase II: Isolation & Sabotage</div>
+                    <p class="step-text">Allow the hostile environment to culminate. Let the targets/frineds formally exile you from the group.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="step-node" data-step="8">
+                <div class="step-number">VIII</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase III: Covert Preservation</div>
+                    <p class="step-text">Maintain flawless back-channel communications and loyalty with the <span class="accent-gold">EXCEPTED ASSET</span> in secret.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="9">
+                <div class="step-number">IX</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase III: Covert Preservation</div>
+                    <p class="step-text">Graduation milestone reached. Disappear entirely from mainstream channels as frineds branch out onto their separate paths.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="step-node" data-step="10">
+                <div class="step-number">X</div>
+                <div class="step-content">
+                    <div class="step-phase">Phase IV: The Endgame</div>
+                    <p class="step-text">Time jump. Allow years of silence to age the plan until frineds plan the inevitable reunion/get-together.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="11">
+                <div class="step-number">XI</div>
+                <div class="step-content">
+                    <div class="classified-watermark">INTEL FEED</div>
+                    <div class="step-phase">Phase IV: The Endgame</div>
+                    <p class="step-text">Leverage your inside Asset to track down the exact tactical time and location of the reunion/get-together.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+
+            <div class="step-node" data-step="12">
+                <div class="step-number">XII</div>
+                <div class="step-content">
+                    <div class="classified-watermark" style="color: var(--gold-primary); border-color: var(--gold-primary);">VICTORY</div>
+                    <div class="step-phase" style="color: var(--gold-primary);">Phase IV: The Endgame</div>
+                    <p class="step-text">Infiltrate the get-together. Deliver the ultimate surprise, map out the architecture of your multi-year psychological operation, and claim checkmate.</p>
+                    <div class="step-checkbox"><span class="status-dot"></span> <span class="node-state-txt">STANDBY</span></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- -->
+        <!-- INTEL SIDE PANEL -->
+        <aside class="intel-sidebar">
+            <div class="panel-header">
+                <span>OPERATIONAL DOSSIER</span>
+                <i class="fa-solid fa-folder-open" style="color: var(--gold-primary);"></i>
+            </div>
+            
+            <div class="intel-row">
+                <strong>OPERATION ID:</strong>
+                <span class="intel-val accent-gold">DHRNDR_03</span>
+            </div>
+            <div class="intel-row">
+                <strong>THREAT INDEX:</strong>
+                <span class="intel-val accent-red">CRITICAL</span>
+            </div>
+            <div class="intel-row">
+                <strong>INSIDE ASSETS:</strong>
+                <span class="intel-val">1 KEY ASSET</span>
+            </div>
+            <div class="intel-row">
+                <strong>CURRENT FOCUS:</strong>
+                <span class="intel-val" id="focus-node-val">PHASE II (STEP 5)</span>
+            </div>
+
+            <div class="panel-header" style="margin-top: 35px;">
+                <span>TACTICAL CONTEXT</span>
+                <i class="fa-solid fa-fingerprint" style="color: var(--red-accent);"></i>
+            </div>
+            <p style="font-size: 0.95rem; line-height: 1.5; color: var(--text-dim); margin-bottom: 20px;">
+                Plan Dhurandhar 3 relies entirely on tactical psychological manipulation. Success demands perfect execution of deep-cover insertion and selective social friction.
+            </p>
+
+            <div class="panel-header" style="margin-top: 30px;">
+                <span>DECRYPTED LIVE LOGS</span>
+            </div>
+            <div class="live-ticker" id="ticker">
+                [SYSTEM]: Awaiting blueprint activation...<br>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="btn-cinematic" id="execute-btn" style="display:inline-block; width: 100%; border-color: var(--red-accent); color: var(--red-accent);">INITIATE BLUEPRINT</button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- -->
+    <script>
+        // Synthesizer setup for pure-code tactical UI sound effect feedback
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
+            }
+        }
+
+        function playSynthSound(freq, type, duration, volume = 0.1) {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {
+                // Fail silently if browser blocks audio context
+            }
+        }
+
+        //        // Decryption boot loader logic
+        const progress = document.getElementById('loading-progress');
+        const decryptBtn = document.getElementById('decrypt-trigger');
+        const reconSnap = document.getElementById('recon-snap');
+        let count = 0;
+
+        const bootSequence = setInterval(() => {
+            count += 5;
+            progress.innerText = `DECRYPTING PACKETS: ${count}%`;
+            
+            // Generate low processing sounds
+            if (count % 15 === 0) {
+                playSynthSound(150, 'sawtooth', 0.05, 0.02);
+            }
+
+            // Slowly reveal the group photo as packets decrypt
+            if (count === 30) {
+                reconSnap.style.opacity = "0.3";
+            } else if (count === 60) {
+                reconSnap.style.opacity = "0.6";
+            } else if (count === 90) {
+                reconSnap.style.opacity = "0.85";
+            }
+
+            if (count >= 100) {
+                clearInterval(bootSequence);
+                reconSnap.classList.add('resolved');
+                progress.innerText = "ACCESS GRANTED. AUTHORIZED DECRYPTION READY.";
+                decryptBtn.style.display = 'block';
+                playSynthSound(440, 'triangle', 0.3, 0.15);
+            }
+        }, 80);
+
+        decryptBtn.addEventListener('click', () => {
+            playSynthSound(600, 'sine', 0.15, 0.15);
+            setTimeout(() => playSynthSound(800, 'sine', 0.2, 0.15), 100);
+            
+            document.getElementById('boot-screen').style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            document.getElementById('boot-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('boot-screen').style.display = 'none';
+                logTicker("[SYSTEM]: Connection secure. Operation Dhurandhar 3 tracking initialized.");
+                updateTargetBoard(1); // Initialize target matrix
+            }, 600);
+        });
+
+        //        // Target Board state transitions based on active chronological step
+        function updateTargetBoard(stepNum) {
+            const targets = [
+                { id: 1, name: 'Aarav' },
+                { id: 2, name: 'Neha' },
+                { id: 3, name: 'Kabir' },
+                { id: 4, name: 'Riya' },
+                { id: 5, name: 'Vikram' },
+                { id: 6, name: 'Ananya' }
+            ];
+
+            targets.forEach(t => {
+                const card = document.getElementById(`tc-${t.id}`);
+                const fill = document.getElementById(`tb-${t.id}`);
+                const statusLabel = document.getElementById(`ts-${t.id}`);
+
+                card.className = "target-card"; // Reset status
+
+                if (stepNum <= 3) {
+                    // Phase I: All Neutral / Stable
+                    card.classList.add('status-neutral');
+                    fill.style.width = "0%";
+                    statusLabel.innerText = "STABLE";
+                } 
+                else if (stepNum === 4) {
+                    // Phase II, Step 4: Pick Target 1
+                    if (t.id === 1) {
+                        card.classList.add('status-active-focus');
+                        fill.style.width = "50%";
+                        statusLabel.innerText = "LOCKED ON";
+                    } else {
+                        card.classList.add('status-neutral');
+                        fill.style.width = "0%";
+                        statusLabel.innerText = "STABLE";
+                    }
+                } 
+                else if (stepNum === 5) {
+                    // Phase II, Step 5: Irritate Target 1
+                    if (t.id === 1) {
+                        card.classList.add('status-hostile');
+                        fill.style.width = "100%";
+                        statusLabel.innerText = "HOSTILE // ANGRY";
+                    } else {
+                        card.classList.add('status-neutral');
+                        fill.style.width = "0%";
+                        statusLabel.innerText = "STABLE";
+                    }
+                } 
+                else if (stepNum === 6) {
+                    // Phase II, Step 6: Repeat sequentially except Rohan (Asset)
+                    // Let's irritate Target 1, 2, 3, 4, 5
+                    if (t.id <= 5) {
+                        card.classList.add('status-hostile');
+                        fill.style.width = "100%";
+                        statusLabel.innerText = "HOSTILE // ANGRY";
+                    } else {
+                        card.classList.add('status-neutral');
+                        fill.style.width = "0%";
+                        statusLabel.innerText = "STABLE";
+                    }
+                } 
+                else if (stepNum === 7) {
+                    // Phase II, Step 7: Banishment! All 6 targets are extremely angry
+                    card.classList.add('status-hostile');
+                    fill.style.width = "100%";
+                    statusLabel.innerText = "EXILED // BLOCKED";
+                } 
+                else if (stepNum === 8 || stepNum === 9 || stepNum === 10) {
+                    // Phase III & IV early: Neutral targets on separate life paths, Asset remains locked
+                    card.classList.add('status-neutral');
+                    fill.style.width = "0%";
+                    statusLabel.innerText = "OFFLINE";
+                }
+                else if (stepNum === 11 || stepNum === 12) {
+                    // Victory/Reunion prep: targets surprised or located
+                    card.classList.add('status-active-focus');
+                    fill.style.width = "80%";
+                    statusLabel.innerText = stepNum === 12 ? "SURPRISED!" : "TRACKED";
+                }
+            });
+
+            // Handle Key Asset Status
+            const assetCard = document.getElementById('tc-asset');
+            const assetFill = document.getElementById('tb-asset');
+            const assetStatus = document.getElementById('ts-asset');
+
+            assetCard.className = "target-card asset-node"; // reset classes
+
+            if (stepNum <= 7) {
+                assetCard.classList.add('status-secured');
+                assetFill.style.width = "100%";
+                assetStatus.innerText = "SECURE LINK";
+            } else if (stepNum === 8) {
+                assetCard.classList.add('status-secured');
+                assetCard.style.boxShadow = "0 0 25px var(--gold-primary)";
+                assetFill.style.width = "100%";
+                assetStatus.innerText = "UPLINK DEPLOYED";
+            } else if (stepNum === 11) {
+                assetCard.classList.add('status-secured');
+                assetCard.style.boxShadow = "0 0 25px var(--neon-blue)";
+                assetFill.style.width = "100%";
+                assetStatus.innerText = "FEED STREAMING";
+            } else if (stepNum === 12) {
+                assetCard.classList.add('status-secured');
+                assetFill.style.width = "100%";
+                assetStatus.innerText = "MISSION SUCCESS";
+            } else {
+                assetCard.classList.add('status-neutral');
+                assetFill.style.width = "40%";
+                assetStatus.innerText = "DEEP COVER";
+            }
+        }
+
+        //        // Dynamic chronological navigation and status update
+        const steps = document.querySelectorAll('.step-node');
+        const focusNodeVal = document.getElementById('focus-node-val');
+
+        steps.forEach((node) => {
+            node.addEventListener('click', () => {
+                const clickedNum = parseInt(node.getAttribute('data-step'));
+                playSynthSound(400, 'sine', 0.05, 0.1);
+
+                steps.forEach(s => {
+                    const sNum = parseInt(s.getAttribute('data-step'));
+                    const stateDot = s.querySelector('.status-dot');
+                    const stateText = s.querySelector('.node-state-txt');
+                    
+                    s.classList.remove('active', 'completed');
+                    stateDot.classList.remove('completed');
+
+                    if (sNum < clickedNum) {
+                        s.classList.add('completed');
+                        stateDot.classList.add('completed');
+                        stateText.innerText = "COMPLETED";
+                    } else if (sNum === clickedNum) {
+                        s.classList.add('active');
+                        stateText.innerText = "ACTIVE";
+                        focusNodeVal.innerText = `PHASE ${clickedNum <= 3 ? 'I' : (clickedNum <= 7 ? 'II' : (clickedNum <= 9 ? 'III' : 'IV'))} (STEP ${clickedNum})`;
+                    } else {
+                        stateText.innerText = "STANDBY";
+                    }
+                });
+
+                // Update target matrix UI state dynamically
+                updateTargetBoard(clickedNum);
+
+                logTicker(`[DECRYPT]: Tracking structural node target shift to Element ${clickedNum}.`);
+            });
+        });
+
+        // Event logs feed logger
+        const ticker = document.getElementById('ticker');
+        function logTicker(message) {
+            const time = new Date().toLocaleTimeString();
+            ticker.innerHTML += `[${time}] ${message}<br>`;
+            ticker.scrollTop = ticker.scrollHeight;
+        }
+
+        //        // Click handlers on target matrix cards for simulated intel retrieval
+        const targetCards = document.querySelectorAll('.target-card');
+        targetCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const tNum = card.getAttribute('data-t-num');
+                playSynthSound(250, 'triangle', 0.1, 0.1);
+                
+                if (tNum === 'asset') {
+                    logTicker(`<span style="color: var(--gold-primary)">[INTEL]: Rohan is locked down as Inside Agent. Communication vector secure.</span>`);
+                } else {
+                    const name = card.querySelector('.target-name').innerText;
+                    const status = card.querySelector('.target-label-status').innerText;
+                    logTicker(`[SURVEILLANCE]: Querying profiles... Name: ${name} // Designation: Target ${tNum} // Thread Severity: ${status}`);
+                }
+            });
+        });
+
+        // Action Trigger Button
+        const execBtn = document.getElementById('execute-btn');
+        const statusBadge = document.getElementById('global-status');
+        let operationActive = false;
+
+        execBtn.addEventListener('click', () => {
+            operationActive = !operationActive;
+            initAudio();
+
+            if (operationActive) {
+                // Danger sweep sirens
+                playSynthSound(100, 'sawtooth', 0.2, 0.2);
+                setTimeout(() => playSynthSound(150, 'sawtooth', 0.3, 0.2), 150);
+
+                statusBadge.innerText = "SYSTEM STATUS: ACTIVE RUNTIME";
+                statusBadge.style.color = "var(--red-accent)";
+                statusBadge.style.borderColor = "var(--red-accent)";
+                execBtn.innerText = "STAND DOWN SYSTEM";
+                execBtn.style.borderColor = "var(--gold-primary)";
+                execBtn.style.color = "var(--gold-primary)";
+                logTicker("<span style='color: var(--red-accent); font-weight: bold;'>[ALERT]: Blueprints deployed. Operational nodes tracking active!</span>");
+            } else {
+                playSynthSound(120, 'sine', 0.3, 0.2);
+                statusBadge.innerText = "SYSTEM STATUS: STANDBY";
+                statusBadge.style.color = "var(--red-accent)";
+                statusBadge.style.borderColor = "rgba(230, 25, 25, 0.4)";
+                execBtn.innerText = "INITIATE BLUEPRINT";
+                execBtn.style.borderColor = "var(--red-accent)";
+                execBtn.style.color = "var(--red-accent)";
+                logTicker("[SYSTEM]: Operation sequence paused. Systems returned to safe cover.");
+            }
+        });
+    </script>
+</body>
+</html>
